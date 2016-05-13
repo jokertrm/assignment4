@@ -1,0 +1,202 @@
+.wrapper{
+	margin: 0em 3em 2em 3em;
+}
+.fenway{
+	width: 900px;
+	height: 600px;
+	position: absolute;
+	left: 5em;
+	top: 50px;
+	z-index: -5;
+	background:url(img/fenway.svg) no-repeat;
+}
+.gameon{
+	height: 200px;
+	width: 600px;
+	opacity: 0;
+	position: absolute;
+	top: 20em;
+	left: 20em;
+	z-index: 2;
+}
+.moon{
+	height: 200px;
+	width: 200px;
+	opacity: 1;
+	position: absolute;
+	top: 20em;
+	left: 25em;
+	z-index: -17;
+	transform-origin:300px 30px;
+	background:url(img/moon.svg) no-repeat;
+}
+.cloudsR{
+	height: 100px;
+	width: 300px;
+	opacity: .7;
+	position: relative;
+	top: 8em;
+	left: 0;
+	z-index: -16;
+	background:url(img/cloud.svg) no-repeat;
+}
+.blimp{
+	height: 100px;
+	width: 300px;
+	opacity: .99;
+	position: relative;
+	top: 0em;
+	left: 1em;
+	z-index: -15;
+
+}
+
+.cloudsL{
+	height: 100px;
+	width: 300px;
+	opacity: .7;
+	position: absolute;
+	top: 2em;
+	left: 55em;
+	z-index: -17;
+	background:url(img/cloud.svg) no-repeat;
+}
+.sky{
+	height: 450px;
+	width: 900px;
+	opacity: .9;
+	position: absolute;
+	top: .5em;
+	bottom: 10rem;
+	left: 5em;
+	z-index: -20;
+}
+.stars{
+	height: 450px;
+	width: 900px;
+	opacity: .9;
+	position: absolute;
+	top: .5em;
+	bottom: 10rem;
+	left: 5em;
+	z-index: -19;
+	background:url(img/stars.svg) no-repeat;
+}
+@keyframes clouds-roll-right {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(800px);
+		opacity: 0;
+	}
+}
+@keyframes clouds-roll-left {
+	from {
+		transform: translateX(0px);
+	}
+	to {
+		transform: translateX(-800px);
+		opacity: 0;
+	}
+}
+@keyframes blimp-roll-right {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(800px);
+		
+	}
+}
+@keyframes gameonPulse {
+	0% {opacity: 0; } 
+	20% {opacity: .5; } 
+	40% {opacity: .9; }
+	60% {opacity: .5; }
+	80% {opacity: .9; }
+	100% {opacity: .5; }
+
+}
+@keyframes stars-come-out {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: .9;
+	}
+}
+
+@keyframes darkening-skys {
+	0% {fill: #333399;}
+	100% {fill: black;}
+}
+@keyframes moon-comes-up{
+	 from{transform: rotate(0deg);}
+	 to{transform: rotate(100deg);}
+}
+.moon {
+	animation-name: moon-comes-up;
+	animation-duration: 50s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 3;
+	animation-fill-mode: both;
+}
+.stars {
+	animation-name: stars-come-out;
+	animation-duration: 30s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 3;
+	animation-fill-mode: forwards;
+}
+.gameon {
+	animation-name: gameonPulse;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 30;
+	animation-fill-mode: forwards;
+	animation-delay: 3s;
+}
+.gameon:hover #PlayBall text {
+	stroke: yellow;
+}
+
+.gameon:hover ~ .blimp #letsGo {
+	stroke: red;
+	opacity: .9;
+	transition: all 1s ease-in-out;
+	
+}
+.gameon:hover ~ .blimp #redSox {
+	stroke: blue;
+	transition-delay: 1s;
+	opacity: .9;
+	transition: all 1s ease-in-out;
+}
+.cloudsR {
+	animation-name: clouds-roll-right;
+	animation-duration: 45s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 3;
+	animation-fill-mode: forwards;
+}
+.cloudsL {
+	animation-name: clouds-roll-left;
+	animation-duration: 45s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 3;
+	animation-fill-mode: forwards;
+}
+.blimp {
+	animation-name: blimp-roll-right;
+	animation-duration: 45s;
+	animation-timing-function: ease-in;
+	animation-iteration-count: 3;
+	animation-fill-mode: forwards;
+}
+.sky #sky_background {
+	animation-name: darkening-skys;
+	animation-duration: 45s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 3;
+	animation-fill-mode: both;
